@@ -44,12 +44,25 @@
             <br>
             <br>
         </div>
+        <div id='cmp_pic4_form' class="controls  field-cmp_response1">
+            <div><img src="{% static cmp_pic4 %}" alt="'cmp_pic4" class="cmp_pic"></div>
+            <br>
+            <div class="cmp_ques">
+                <p>上图中由小字母组成的<strong>大字母</strong>是
+                    <input type="text" name="cmp_response3" required="" id="id_cmp_response4"
+                           class="form-check-input">
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
     </div>
 </form>
 
 {{ form.cmp_response1.errors }}
 {{ form.cmp_response2.errors }}
 {{ form.cmp_response3.errors }}
+{{ form.cmp_response4.errors }}
 
 
 {% next_button %}
@@ -62,9 +75,9 @@
         let cmp_ques3 = document.querySelector('#cmp_pic3_form');
         let order = Math.floor(Math.random() * 4);
 
-        if (order == 1) {
+        if (order === 1) {
             cmp_ques1.parentNode.insertBefore(cmp_ques2, cmp_ques1);
-        } else if (order == 3) {
+        } else if (order === 3) {
             cmp_ques2.parentNode.insertBefore(cmp_ques3, cmp_ques2);
         }
     }

@@ -29,25 +29,27 @@ class Composition(Page):
         cmp_data = pandas.read_excel(file_path)
 
         population = list(range(36))
-        selection = random.sample(population, 3)
+        selection = random.sample(population, 4)
         information = []
 
         for i in selection:
             information += [[cmp_data['file'].iloc[i], cmp_data['big'].iloc[i], cmp_data['small'].iloc[i]]]
 
 
-        self.player.cmp_file1, self.player.cmp_ans1 = information[0][0], information[0][1]
-        self.player.cmp_file2, self.player.cmp_ans2 = information[1][0], information[1][2]
-        self.player.cmp_file3, self.player.cmp_ans3 = information[2][0], information[2][1]
+        self.player.cmp_ans1 = information[0][1]
+        self.player.cmp_ans2 = information[1][2]
+        self.player.cmp_ans3 = information[2][1]
+        self.player.cmp_ans4 = information[3][1]
 
         return dict(
-            cmp_pic1='compositions/' + self.player.cmp_file1,
-            cmp_pic2='compositions/' + self.player.cmp_file2,
-            cmp_pic3='compositions/' + self.player.cmp_file3
+            cmp_pic1='compositions/' + information[0][0],
+            cmp_pic2='compositions/' + information[1][0],
+            cmp_pic3='compositions/' + information[2][0],
+            cmp_pic4='compositions/' + information[3][0]
         )
 
     form_model = 'player'
-    form_fields = ['cmp_response1', 'cmp_response2', 'cmp_response3']
+    form_fields = ['cmp_response1', 'cmp_response2', 'cmp_response3', 'cmp_response4']
 
 
 class Emo_evoketion(Page):
