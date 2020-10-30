@@ -509,11 +509,34 @@
 {{ form.valence_emo.errors }}
 {{ form.diff_emo.errors }}
 
-{% next_button %}
+
+<div class="next_button_after">{% next_button %}</div>
 
 {% block main_script %}
 <script>
     window.onload = shuffle_divs();
+    let self_emo = document.getElementById('self_emo');
+    self_emo.addEventListener('click', hide_it);
+
+    setTimeout(show_button, 30000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+
+    function hide_it() {
+        let self_radio = document.getElementById('id_self_emo_0');
+        let clear_radio = document.getElementById('id_clear_emo_0')
+        let clear_emo = document.getElementById('id_form_clear_emo');
+        if (self_radio.checked) {
+            clear_emo.style.display = 'none';
+            clear_radio.checked = 1;
+        } else if ((!self_radio.checked) && (clear_emo.style.display === 'none')) {
+            clear_radio.checked = false;
+            clear_emo.style.display = 'block';
+        }
+    }
 
     function shuffle_divs() {
         let total_form = document.querySelector('#total_form');

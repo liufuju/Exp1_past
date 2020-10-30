@@ -115,5 +115,10 @@ class Rest(Page):
         B = self.round_number != len(self.participant.vars['emotions'])
         return A & B
 
+    def vars_for_template(self):
+        return dict(
+            left_percentage=round(((1 + self.round_number) * 100) / 9)
+        )
+
 
 page_sequence = [Instructions, Background, Emo_evoketion, Composition, Imagination, Question_filling, Description, Rest]

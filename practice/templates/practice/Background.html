@@ -26,7 +26,17 @@
 {{ form.age_year_later.errors }}
 {{ form.city_later.errors }}
 
-{% next_button %}
+<div class="next_button_after">{% next_button %}</div>
+
+{% block practice_script %}
+<script>
+    setTimeout(show_button, 10000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+</script>
 
 
 

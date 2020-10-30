@@ -43,7 +43,6 @@ class Player(BasePlayer):
     clear_emo = models.IntegerField(label='')
     isolate_emo = models.IntegerField(label='')
     sub_time = models.IntegerField(label='')
-    strength_emo = models.IntegerField(label='')
     vivid_emo = models.IntegerField(label='')
     valence_emo = models.IntegerField(label='')
     diff_emo = models.IntegerField(label='')

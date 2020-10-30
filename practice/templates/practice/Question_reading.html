@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block content %}
-<p>请您<strong>阅读并理解</strong>以下问题（<strong>不用选择</strong>）</p>
+<p>请您<strong>仔细阅读</strong>以下问题（<strong>不用选择</strong>）</p>
 <br>
 <br>
 <form action="" method="post">
@@ -501,11 +501,20 @@
 </form>
 
 
-{% next_button %}
+<div class="next_button_after">{% next_button %}</div>
+
+
 
 {% block main_script %}
 <script>
     window.onload = shuffle_divs();
+
+    setTimeout(show_button, 60000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
 
     function shuffle_divs() {
         let total_form = document.querySelector('#total_form');

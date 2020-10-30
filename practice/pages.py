@@ -49,7 +49,16 @@ class Question_reading(Page):
 
 class Question_filling(Page):
     form_model = 'player'
-    form_fields = ['role_emo', 'self_emo', 'clear_emo']
+    form_fields = [
+        'role_emo',
+        'self_emo',
+        'clear_emo',
+        'isolate_emo',
+        'sub_time',
+        'vivid_emo',
+        'valence_emo',
+        'diff_emo'
+    ]
 
 
 class Description(Page):
