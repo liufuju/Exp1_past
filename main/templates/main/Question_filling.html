@@ -497,6 +497,67 @@
             <br>
             <br>
         </div>
+         <div class="controls  field-gotcha" id="id_form_gotcha">
+            <table id="gotcha" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>非常困难</td>
+                    <td>比较困难</td>
+                    <td>有些困难</td>
+                    <td>一般</td>
+                    <td>有些容易</td>
+                    <td>比较容易</td>
+                    <td>非常容易</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>此题请选{{ gotcha_label }}。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="1" required="" id="id_gotcha_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="2" required="" id="id_gotcha_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="3" required="" id="id_gotcha_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="4" required="" id="id_gotcha_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="5" required="" id="id_gotcha_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="6" required="" id="id_gotcha_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="7" required="" id="id_gotcha_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
     </div>
 </form>
 
@@ -507,6 +568,7 @@
 {{ form.sub_time.errors }}
 {{ form.vivid_emo.errors }}
 {{ form.valence_emo.errors }}
+{{ form.diff_emo.errors }}
 {{ form.diff_emo.errors }}
 
 <div class="next_button_after">{% next_button %}</div>
@@ -539,9 +601,8 @@
 
     function shuffle_divs() {
         let total_form = document.querySelector('#total_form');
-        let order = [0, 1, 2, 3, 4, 5, 6, 7];
+        let order = [0, 1, 2, 3, 4, 5, 6, 7, 8];
         order = shuffle(order);
-        console.log(order);
 
         let ques0 = document.querySelector('#id_form_role_emo');
         let ques1 = document.querySelector('#id_form_self_emo');
@@ -551,12 +612,13 @@
         let ques5 = document.querySelector('#id_form_valence_emo');
         let ques6 = document.querySelector('#id_form_vivid_emo');
         let ques7 = document.querySelector('#id_form_diff_emo');
+        let ques8 = document.querySelector('#id_form_gotcha');
 
 
         let new_node = document.createElement('div');
         total_form.insertBefore(new_node, ques0);
 
-        for (let i = 0; i < 8; i += 1) {
+        for (let i = 0; i < 9; i += 1) {
             switch (order[i]) {
                 case 0:
                     total_form.insertBefore(ques0, new_node);
@@ -582,6 +644,8 @@
                 case 7:
                     total_form.insertBefore(ques7, new_node);
                     break;
+                case 8:
+                    total_form.insertBefore(ques8, new_node);
             }
         }
 

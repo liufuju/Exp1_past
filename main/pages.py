@@ -94,8 +94,18 @@ class Question_filling(Page):
         'sub_time',
         'vivid_emo',
         'valence_emo',
-        'diff_emo'
+        'diff_emo',
+        'gotcha'
     ]
+
+    def vars_for_template(self):
+        gotcha_num = random.choice(range(1, 8))
+        gotcha_drct = random.choice([0, 1])
+        drct_str = ['左数第{}项', '右数第{}项']
+        self.player.gotcha_ans = abs(8 * gotcha_drct - gotcha_num)
+        return dict(
+            gotcha_label=drct_str[gotcha_drct].format(gotcha_num)
+        )
 
 
 class Description(Page):

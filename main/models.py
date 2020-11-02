@@ -58,3 +58,6 @@ class Player(BasePlayer):
     cmp_response2 = models.StringField()
     cmp_response3 = models.StringField()
     cmp_response4 = models.StringField()
+
+    gotcha_ans = models.IntegerField()
+    gotcha = models.IntegerField()
